@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CADASTRO DAMASCO</title>
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-datetimepicker.min.css' %}">
+<!--===============================================================================================-->
+</head>
+
+<body>
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form method="post" class="contact100-form validate-form">
+			{% csrf_token %}
+			
+				<span class="contact100-form-title">
+					Cadastro Membros
+				</span>
+				<label class="label-input100" for="first-name">Nome *</label>
+				<div class="wrap-input100 rs1 validate-input">
+					<input name="nome" id="{{ form.nome.id_for_label }}" {% if form.nome.value != None %} value="{{ form.nome.value }}" {% endif %} class="input100" type="text" placeholder="Nome">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="row col col-lg-6">
+					<label class="label-input100" for="data-nascimento">Data Nascimento *</label>
+					<div class="wrap-input100 rs1 validate-input">
+		            	<div class='input-group date datetimepicker'>
+			                <input name="data_nascimento" id="{{ form.data_nascimento.id_for_label }}" {% if form.data_nascimento.value != None %} value="{{ form.data_nascimento.value }}" {% endif %} class="input100 form-control" type="text" placeholder="00/00/0000">
+			                <span class="focus-input100"></span>
+			                <span class="input-group-addon">
+								<i class="zmdi zmdi-calendar"></i>
+			                </span>
+			            </div>   
+					</div>					
+				</div>
+				<div class="row col col-lg-6">
+					<label class="label-input100" for="estado-civil">Estado Civíl *</label>
+					<div class="wrap-input100 rs1 validate-input">
+						<select id="id_estado_civil" class="input100 form-control" name="estado_civil"> <!--Supplement an id here instead of using 'text'-->
+
+                        {% for instance in form.estado_civil.field.choices %}
+                      <option {% if instance.0 == form.estado_civil.value %}selected{% endif %} value="{{ instance.0 }}">{{ instance.1|capfirst }}</option>
+                      {% endfor %}
+						  
+						</select>
+					</div>
+				</div>
+				<label class="label-input100" for="email">E-mail *</label>
+				<div class="wrap-input100 validate-input">
+					<input name="email" id="{{ form.email.id_for_label }}" {% if form.email.value != None %} value="{{ form.email.value }}" {% endif %} class="input100" type="text" placeholder="Ex. example@email.com">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="row col col-lg-6">
+					<label class="label-input100" for="data_conversao">Data Conversão</label>
+					<div class="wrap-input100 rs1 validate-input">
+						<div class='input-group date datetimepicker'>
+			                <input name="data_conversao" id="{{form.data_conversao.id_for_label }}" {% if form.data_conversao.value != None %} value="{{ form.data_conversao.value }}" {% endif %} type="text" class="input100 form-control" placeholder="00/00/0000"/>
+			                <span class="focus-input100"></span>
+			                <span class="input-group-addon">
+								<i class="zmdi zmdi-calendar"></i>
+			                </span>
+			            </div>
+					</div>
+				</div>
+				<div class="row col col-lg-6">
+					<label class="label-input100" for="data_batismo">Data Batismo</label>
+					<div class="wrap-input100 rs1 validate-input">
+						<div class='input-group date datetimepicker'>
+			                <input name="data_batismo" id="{{ form.data_batismo.id_for_label }}" {% if form.data_batismo.value != None %} value="{{ form.data_batismo.value }}" {% endif %} type='text' class="input100 form-control" placeholder="00/00/0000"/>
+			                <span class="focus-input100"></span>
+			                <span class="input-group-addon">
+								<i class="zmdi zmdi-calendar"></i>
+			                </span>
+			            </div>
+						<span class="focus-input100"></span>
+					</div>
+					
+				</div>
+				<label class="label-input100" for="email">Endereço *</label>
+				<div class="wrap-input100 validate-input">
+					<input name="endereco" id="{{ form.endereco.id_for_label }}" {% if form.endereco.value != None %} value="{{ form.endereco.value }}" {% endif %} class="input100" type="text" placeholder="Endereço">
+					<span class="focus-input100"></span>
+				</div>
+				<div class="row col col-lg-6">
+					<label class="label-input100" for="bairro">Bairro *</label>
+					<div class="wrap-input100 rs1 validate-input">
+						<input name="bairro" id="{{ form.bairro.id_for_label }}" {% if form.bairro.value != None %} value="{{ form.bairro.value }}" {% endif %} class="input100" type="text" placeholder="Bairro">
+						<span class="focus-input100"></span>
+					</div>
+				</div>
+				<div class="row col col-lg-6">
+					<label class="label-input100" for="cidade">Cidade *</label>
+					<div class="wrap-input100 rs1 validate-input">
+						<input name="cidade" id="{{ form.cidade.id_for_label }}" {% if form.cidade.value != None %} value="{{ form.cidade.value }}" {% endif %} class="input100" type="text" placeholder="Cidade">
+						<span class="focus-input100"></span>
+					</div>
+				</div>
+				<div class="row col col-lg-6">
+					<label class="label-input100" for="cep">CEP *</label>
+					<div class="wrap-input100 rs1 validate-input">
+						<input name="cep" id="{{ form.cep.id_for_label }}" {% if form.cep.value != None %} value="{{ form.cep.value }}" {% endif %} class="input100" type="text" placeholder="CEP">
+						<span class="focus-input100"></span>
+					</div>
+				</div>
+				<div class="row col col-lg-6">
+					<label class="label-input100" for="phone">Telefone</label>
+					<div class="wrap-input100">
+						<input name="telefone" id="{{ form.telefone.id_for_label }}" {% if form.telefone.value != None %} value="{{ form.telefone.value }}" {% endif %} class="input100" type="text" placeholder="Ex. (99)3536-1111">
+						<span class="focus-input100"></span>
+					</div>
+				</div>
+				<label class="label-input100" for="foto">Foto</label>
+				<div class="wrap-input100">
+					<input name="foto" id="{{ form.foto.id_for_label }}" {% if form.foto.value != None %} value="{{ form.foto.value }}" {% endif %} type="file" accept=".jpg, .jpeg, .png" placeholder="Foto">
+				</div>
+				<div class="container-contact100-form-btn">
+					<button type="submit" class="contact100-form-btn">
+						<span>
+							SALVAR
+							<i class="zmdi zmdi-arrow-right m-l-8"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'css/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'css/bootstrap/js/moment.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'css/bootstrap/js/popper.js' %}"></script>
+<!--===============================================================================================-->	
+	<script src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/bootstrap-datetimepicker.min.js' %}"></script>
+<!--===============================================================================================-->
+
+<script type="text/javascript">
+    $(function () {
+        $('.datetimepicker').datetimepicker({
+            locale: 'pt-BR',
+        	format: 'DD/MM/YYYY'
+        });
+    });
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
+
+

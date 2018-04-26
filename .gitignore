@@ -1,0 +1,41 @@
+*.py[cod]
+
+# Packages
+*.egg
+*.egg-info
+build
+eggs
+parts
+bin
+var
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Static
+django_cache
+cache
+media
+
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+.sqlite3
+latest.dump
+
+node_modules
+.tmp
+.env
+tmp
+bower_components
+__pycache__
+package-lock.json
+staticfiles
+*.pyc
+__pycache__
+mediafiles
