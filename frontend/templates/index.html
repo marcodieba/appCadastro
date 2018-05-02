@@ -1,0 +1,96 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CADASTRO DAMASCO</title>
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/dataTables.bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-datetimepicker.min.css' %}">
+<!--===============================================================================================-->
+<script src="{% static 'contrib/bootstrap.js' %}"></script>
+</head>
+
+<body>
+	{% block content %}
+		
+	{% endblock %}
+
+<!--===============================================================================================-->
+	<script src="{% static 'css/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'css/bootstrap/js/moment.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'css/bootstrap/js/popper.js' %}"></script>
+<!--===============================================================================================-->	
+	<script src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/dataTables.bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/bootstrap-datetimepicker.min.js' %}"></script>
+<!--===============================================================================================-->
+
+<script type="text/javascript">
+    $(function () {
+        $('.datetimepicker').datetimepicker({
+            locale: 'pt-BR',
+        	format: 'DD/MM/YYYY',	
+
+        });
+    });
+</script>
+<script>
+$(document).ready(function() {
+    $('#dataTables').DataTable({
+        responsive: true,
+         "order": [[ 3, "desc" ]],
+         "language": {
+            "lengthMenu": "Listar _MENU_ Membros",
+            "search":         "Buscar:",
+            "zeroRecords": "Desculpe Não Existe",
+            "info": "Página _PAGE_ de _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtered from _MAX_ total records)",
+            "paginate": {
+        		"first":      "Primeira",
+        		"last":       "Segunda",
+        		"next":       "Próxima",
+        		"previous":   "Anterior"
+    },
+        }
+    });
+});
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>
+
+

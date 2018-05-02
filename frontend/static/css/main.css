@@ -1,7 +1,3 @@
-
-
-
-
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
@@ -156,11 +152,12 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #d867c6;
-  background: -webkit-linear-gradient(90deg, #C77FF4, #E6A96F);
-  background: -o-linear-gradient(90deg, #C77FF4, #E6A96F);
-  background: -moz-linear-gradient(490deg, #C77FF4, #E6A96F);
-  background: linear-gradient(90deg, #C77FF4, #E6A96F);
+  /*background: #C77FF4;*/
+  background: -webkit-linear-gradient(24deg, #C77FF4, 50%, #E6A98B 0);
+  background: -o-linear-gradient(24deg, #C77FF4, 50%, #E6A98B 0);
+  background: -moz-linear-gradient(24deg, #C77FF4, 50%, #E6A98B 0);
+  background: linear-gradient(24deg, #C77FF4, 50%, #E6A98B 0);
+
   
 }
 
@@ -202,12 +199,12 @@ iframe {
 /*------------------------------------------------------------------
 [ Input ]*/
 
-.wrap-input100 {
-  width: 100%;
-  position: relative;
-  border: 1px solid #e6e6e6;
-  border-radius: 2px;
-  margin-bottom: 34px
+.wrap-input100, .dataTables_filter > label > .input-sm{
+  width: 100% !important;
+  position: relative !important;
+  border: 1px solid #e6e6e6 !important;
+  border-radius: 2px !important;
+  margin-bottom: 34px !important;
 }
 
 /* .rs1.wrap-input100 {
@@ -226,19 +223,19 @@ iframe {
   padding-bottom: 11px;
 }
 
-.input100 {
-  display: block;
-  width: 100%;
-  background: transparent;
-  font-family: Raleway-SemiBold;
-  font-size: 18px;
-  color: #333333;
-  line-height: 1.2;
-  padding: 0 25px;
+.input100, input-sm {
+  display: block !important;
+  width: 100% !important;
+  background: transparent !important;
+  font-family: Raleway-SemiBold !important;
+  font-size: 18px !important;
+  color: #333333 !important;
+  line-height: 1.2 !important;
+  padding: 0 25px !important;
 }
 
-input.input100 {
-  height: 55px;
+input.input100, input-sm{
+  height: 55px !important;
 }
 
 textarea.input100 {
@@ -469,7 +466,142 @@ textarea.input100 {
   top: 0px;
   right: -28px;
 }
+tr > td > a{
+  color: #428bca !important;
+}
+/*CSS MEMBROS*/
+.lista{
+  background: linear-gradient(24deg, #C77FF4, 50%, #E6A98B 0);
+  height: 100%;
+}
 
+/*css login*/
+@import "bourbon";
+
+.block_login{
+  background: #428bca !important;
+  height: auto;
+  display: flow-root;  
+}
+
+.wrapper {  
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);  
+
+  .form-signin-heading,
+  .checkbox {
+    margin-bottom: 30px;
+  }
+
+  .checkbox {
+    font-weight: normal;
+  }
+
+  .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    @include box-sizing(border-box);
+
+    &:focus {
+      z-index: 2;
+    }
+  }
+
+  input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  input[type="password"] {
+    margin-bottom: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+.btn-success {
+    color: #fff;
+    background-color: #2C2C2C;
+    border-color: #555;
+}
+.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open .dropdown-toggle.btn-success {
+    color: #fff;
+    background-color: #555;
+    border-color: #2C2C2C;
+  }
+
+/*css menu*/
+
+.login{
+  color: #fff;
+  font-weight: 900;
+}
+.block_menu{
+  height: 500px;
+  padding-top: 15px;
+}
+.page-header{
+  color: #fff;
+  border-bottom:1px solid #fff; 
+}
+
+.panel-green {
+  border-color: #5cb85c;
+}
+.panel-green > .panel-heading {
+  border-color: #5cb85c;
+  color: white;
+  background-color: #5cb85c;
+}
+.panel-green > a {
+  color: #5cb85c;
+}
+.panel-green > a:hover {
+  color: #3d8b3d;
+}
+.panel-red {
+  border-color: #d9534f;
+}
+.panel-red > .panel-heading {
+  border-color: #d9534f;
+  color: white;
+  background-color: #d9534f;
+}
+.panel-red > a {
+  color: #d9534f;
+}
+.panel-red > a:hover {
+  color: #b52b27;
+}
+.panel-yellow {
+  border-color: #f0ad4e;
+}
+.panel-yellow > .panel-heading {
+  border-color: #f0ad4e;
+  color: white;
+  background-color: #f0ad4e;
+}
+.panel-yellow > a {
+  color: #f0ad4e;
+}
+.panel-yellow > a:hover {
+  color: #df8a13;
+}
+
+
+/* .lista{
+  background: #428bca;
+} */
 /*---------------------------------------------*/
 @media (max-width: 576px) {
   .btn-hide-validate {

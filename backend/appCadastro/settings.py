@@ -14,7 +14,10 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ROOT_DIR = os.path.realpath(os.path.join(BASE_DIR, '..', '..'))
+ROOT_DIR = os.path.realpath(os.path.join(BASE_DIR, '..'))
+
+BACKEND_DIR = BASE_DIR
+FRONTEND_DIR = os.path.join(ROOT_DIR, 'frontend')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -27,6 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+LOGIN_URL = '/login'
 
 # Application definition
 
@@ -38,8 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'cadastro',
+    'backend.core.cadastro',
     'rest_framework',
+    'bootstrapform',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -52,12 +58,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'appCadastro.urls'
+ROOT_URLCONF = 'backend.appCadastro.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(FRONTEND_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +85,7 @@ REST_FRAMEWORK =    {
         # 'PAGE_SIZE': 10
     }
 
-WSGI_APPLICATION = 'appCadastro.wsgi.application'
+WSGI_APPLICATION = 'backend.appCadastro.wsgi.application'
 
 
 # Database
@@ -125,14 +131,16 @@ USE_L10N = True
 
 USE_TZ = True
 
+DATE_FORMAT = 'd/m/Y'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(FRONTEND_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(FRONTEND_DIR, 'static')
 ]

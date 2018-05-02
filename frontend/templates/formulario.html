@@ -1,35 +1,22 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-	<title>CADASTRO DAMASCO</title>
-	<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-datetimepicker.min.css' %}">
-<!--===============================================================================================-->
-</head>
-
-<body>
-
-	<div class="container-contact100">
+{% extends 'index.html' %}
+{% block content %}
+<div class="container-contact100">
+		
 		<div class="wrap-contact100">
+			<div class="text-right">
+			{% if user.is_authenticated %}
+				{{ user }}
+				<a href="{% url 'logout' %}">Sair</a>
+			{% endif %}
+			</div>	
+			<span class="contact100-form-title">
+				Cadastro Membros
+			</span>
+			<ol class="breadcrumb">
+				<li><a href="#">Home</a></li>
+			</ol>
 			<form method="post" class="contact100-form validate-form">
 			{% csrf_token %}
-			
-				<span class="contact100-form-title">
-					Cadastro Membros
-				</span>
 				<label class="label-input100" for="first-name">Nome *</label>
 				<div class="wrap-input100 rs1 validate-input">
 					<input name="nome" id="{{ form.nome.id_for_label }}" {% if form.nome.value != None %} value="{{ form.nome.value }}" {% endif %} class="input100" type="text" placeholder="Nome">
@@ -37,9 +24,9 @@
 				</div>
 				<div class="row col col-lg-6">
 					<label class="label-input100" for="data-nascimento">Data Nascimento *</label>
-					<div class="wrap-input100 rs1 validate-input">
-		            	<div class='input-group date datetimepicker'>
-			                <input name="data_nascimento" id="{{ form.data_nascimento.id_for_label }}" {% if form.data_nascimento.value != None %} value="{{ form.data_nascimento.value }}" {% endif %} class="input100 form-control" type="text" placeholder="00/00/0000">
+					<div class="wrap-input100 rs1 validate-input" >
+		            	<div class='input-group datetimepicker'>
+			                <input name="data_nascimento" id="{{ form.data_nascimento.id_for_label }}" {% if form.data_nascimento.value != None %} value="{{ form.data_nascimento.value|date:'d/m/Y' }}" placeholder="{{ form.data_nascimento.value }}" {% endif %} class="input100 form-control" type="text" >
 			                <span class="focus-input100"></span>
 			                <span class="input-group-addon">
 								<i class="zmdi zmdi-calendar"></i>
@@ -66,9 +53,9 @@
 				</div>
 				<div class="row col col-lg-6">
 					<label class="label-input100" for="data_conversao">Data Conversão</label>
-					<div class="wrap-input100 rs1 validate-input">
+					<div class="wrap-input100 rs1">
 						<div class='input-group date datetimepicker'>
-			                <input name="data_conversao" id="{{form.data_conversao.id_for_label }}" {% if form.data_conversao.value != None %} value="{{ form.data_conversao.value }}" {% endif %} type="text" class="input100 form-control" placeholder="00/00/0000"/>
+			                <input name="data_conversao" id="{{form.data_conversao.id_for_label }}" {% if form.data_conversao.value != None %} value="{{ form.data_conversao.value|date:'d/m/Y' }}" {% endif %} type="text" class="input100 form-control" placeholder="{{ form.data_conversao.value }}"/>
 			                <span class="focus-input100"></span>
 			                <span class="input-group-addon">
 								<i class="zmdi zmdi-calendar"></i>
@@ -78,9 +65,9 @@
 				</div>
 				<div class="row col col-lg-6">
 					<label class="label-input100" for="data_batismo">Data Batismo</label>
-					<div class="wrap-input100 rs1 validate-input">
+					<div class="wrap-input100 rs1">
 						<div class='input-group date datetimepicker'>
-			                <input name="data_batismo" id="{{ form.data_batismo.id_for_label }}" {% if form.data_batismo.value != None %} value="{{ form.data_batismo.value }}" {% endif %} type='text' class="input100 form-control" placeholder="00/00/0000"/>
+			                <input name="data_batismo" id="{{ form.data_batismo.id_for_label }}" {% if form.data_batismo.value != None %} value="{{ form.data_batismo.value|date:'d/m/Y' }}" {% endif %} type='text' class="input100 form-control" placeholder="{{ form.data_batismo.value }}"/>
 			                <span class="focus-input100"></span>
 			                <span class="input-group-addon">
 								<i class="zmdi zmdi-calendar"></i>
@@ -138,42 +125,4 @@
 			</form>
 		</div>
 	</div>
-
-
-
-<!--===============================================================================================-->
-	<script src="{% static 'css/jquery/jquery-3.2.1.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'css/bootstrap/js/moment.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'css/bootstrap/js/popper.js' %}"></script>
-<!--===============================================================================================-->	
-	<script src="{% static 'css/bootstrap/js/bootstrap.min.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'js/main.js' %}"></script>
-<!--===============================================================================================-->
-	<script src="{% static 'js/bootstrap-datetimepicker.min.js' %}"></script>
-<!--===============================================================================================-->
-
-<script type="text/javascript">
-    $(function () {
-        $('.datetimepicker').datetimepicker({
-            locale: 'pt-BR',
-        	format: 'DD/MM/YYYY'
-        });
-    });
-</script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
-</script>
-
-</body>
-</html>
-
-
+{% endblock %}
